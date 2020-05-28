@@ -2,15 +2,16 @@
 //// L'utente inserisce due numeri in successione, con due prompt.
 //// Il software stampa il maggiore.
 
-// Utente inseisce due numeri
+// Utente inserisce primo numero
 var primoNumero = parseInt(prompt('Inserisci un numero.'));
-var secondoNumero = parseInt(prompt('Inserisci un secondo numero.'));
 
-// Validazione elemento inserito
 while ( isNaN(primoNumero) || primoNumero == '' ) {
   primoNumero = parseInt(prompt('Il numero inserito non é valido. Inserisci un numero.'));
 }
 // console.log(primoNumero);
+
+// Utente inserisce secondo numero
+var secondoNumero = parseInt(prompt('Inserisci un secondo numero.'));
 
 while ( isNaN(secondoNumero) || secondoNumero == '' ) {
   secondoNumero = parseInt(prompt('Il numero inserito non é valido. Inserisci un secondo numero.'));
@@ -18,17 +19,16 @@ while ( isNaN(secondoNumero) || secondoNumero == '' ) {
 // console.log(secondoNumero);
 
 // Il software trova il maggiore
-var numeroMaggiore;
+var messaggio = 'I numeri sono pari.';
+
 if ( primoNumero > secondoNumero ) {
-  numeroMaggiore = primoNumero;
+  messaggio = 'Il numero maggiore è: ' + primoNumero;
 } else if ( secondoNumero > primoNumero ) {
-  numeroMaggiore = secondoNumero;
-} else {
-  numeroMaggiore = 'nessuno, perchè sono uguali';
+  messaggio = 'Il numero maggiore è: ' + secondoNumero;
 }
 
 // Stampa il numero maggiore
-document.getElementById('ciao').innerHTML = 'Il numero maggiore è: ' + numeroMaggiore;
+document.getElementById('ciao').innerHTML = messaggio;
 
 
 // // JSNACKS-2
