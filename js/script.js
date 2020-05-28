@@ -97,73 +97,85 @@
 // document.getElementById('ciao').innerHTML = 'La somma finale è: ' + somma;
 
 
-// JSNACKS-4
-//// In un array sono contenuti i nomi degli invitati alla festa del grande Gatsby,
-//// chiedi all’utente il suo nome e comunicagli se può partecipare o no alla festa.
-
-// Lista invitati
-var lista = ['alberto', 'lara', 'camilla', 'maia', 'noa', 'alex', 'sara'];
-
-// Chiedo all'utente il nome
-// WHILE
-var nome = prompt('Come ti chiami?');
-while ( !(isNaN(nome)) || nome.length == 0 ) {
-  nome = prompt('Il nome inserito non è valido. Come ti chiami?');
-};
-
-// // DO-WHILE
-// do {
-//   var nome = prompt('Come ti chiami?');
-// } while ( !(isNaN(nome)) || nome.length == 0 )
-
-// Ipotesi invitato
-var invitato = false;
-
-// Standardizzazione grandezza nomi
-var nomeMinusciolo = nome.toLowerCase();
-
-// Ciclo di controllo nomi lista
-// WHILE
-var i = 0;
-while (i < lista.length) {
-  if ( nomeMinusciolo == lista[i] ) {
-    invitato = true;
-  }
-  i++;
-}
-
-// // FOR
-// for (var i = 0; i < lista.length; i++) {
+// // JSNACKS-4
+// //// In un array sono contenuti i nomi degli invitati alla festa del grande Gatsby,
+// //// chiedi all’utente il suo nome e comunicagli se può partecipare o no alla festa.
+//
+// // Lista invitati
+// var lista = ['alberto', 'lara', 'camilla', 'maia', 'noa', 'alex', 'sara'];
+//
+// // Chiedo all'utente il nome
+// // WHILE
+// var nome = prompt('Come ti chiami?');
+// while ( !(isNaN(nome)) || nome.length == 0 ) {
+//   nome = prompt('Il nome inserito non è valido. Come ti chiami?');
+// };
+//
+// // // DO-WHILE
+// // do {
+// //   var nome = prompt('Come ti chiami?');
+// // } while ( !(isNaN(nome)) || nome.length == 0 )
+//
+// // Ipotesi invitato
+// var invitato = false;
+//
+// // Standardizzazione grandezza nomi
+// var nomeMinusciolo = nome.toLowerCase();
+//
+// // Ciclo di controllo nomi lista
+// // WHILE
+// var i = 0;
+// while (i < lista.length) {
 //   if ( nomeMinusciolo == lista[i] ) {
 //     invitato = true;
 //   }
+//   i++;
+// }
+//
+// // // FOR
+// // for (var i = 0; i < lista.length; i++) {
+// //   if ( nomeMinusciolo == lista[i] ) {
+// //     invitato = true;
+// //   }
+// // }
+//
+// // Stampo partecipazione o non
+// var partecipazione = document.getElementById('ciao');
+// if (invitato) {
+//   partecipazione.innerHTML = 'Puoi partecipare!';
+// } else {
+//   partecipazione.innerHTML = 'Mi dispiace, non puoi partecipare.';
 // }
 
-// Stampo partecipazione o non
-var partecipazione = document.getElementById('ciao');
-if (invitato) {
-  partecipazione.innerHTML = 'Puoi partecipare!';
-} else {
-  partecipazione.innerHTML = 'Mi dispiace, non puoi partecipare.';
+
+// JSNACKS-5
+//// Chiedi un numero di 4 cifre all’utente e calcola la somma di tutte le cifre
+//// che compongono il numero.
+
+// Chiedo un numero all'utente
+var numero = parseInt(prompt('Scrivi un numero di 4 cifre.'));
+while ( !(numero >=  1000 && numero <= 9999) || isNaN(numero)  ) {
+  numero = parseInt(prompt('Non valido. Scrivi un numero di 4 cifre.'));
 }
 
+// Cambiamo tipo variabile per procedere al calcolo
+var stringa = numero.toString();
+var singoloNumero = stringa.split('');
 
-// // JSNACKS-5
-// //// Chiedi un numero di 4 cifre all’utente e calcola la somma di tutte le cifre
-// //// che compongono il numero.
-//
-// // Chiedo un numero all'utente
-// var numero = prompt('Scrivi un numero di 4 cifre.');
-// var singoloNumero = numero.split('');
-// // console.log(singoloNumero);
-//
-// // Calcolo la somma
-// var somma = 0;
-// for (var i = 0; i < singoloNumero.length; i++) {
+// Calcolo la somma
+var somma = 0;
+
+// FOR
+for (var i = 0; i < singoloNumero.length; i++) {
+  somma = somma + parseInt(singoloNumero[i]);
+}
+
+// // WHILE
+// var i = 0;
+// while ( i < singoloNumero.length ) {
 //   somma = somma + parseInt(singoloNumero[i]);
-//   // console.log('Numero da aggiungere:', singoloNumero[i]);
-//   // console.log('Somma aggiornata:', somma);
+//   i++;
 // }
-//
-// // Stampo il risulatato
-// alert('La somma è: ' + somma);
+
+// Stampo il risulatato
+document.getElementById('ciao').innerHTML = 'La somma è: ' + somma;
