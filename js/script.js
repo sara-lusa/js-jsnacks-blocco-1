@@ -1,69 +1,72 @@
-// JSNACKS-1
-//// L'utente inserisce due numeri in successione, con due prompt.
-//// Il software stampa il maggiore.
+// // JSNACKS-1
+// //// L'utente inserisce due numeri in successione, con due prompt.
+// //// Il software stampa il maggiore.
+//
+// // Utente inserisce primo numero
+// var primoNumero = parseInt(prompt('Inserisci un numero.'));
+//
+// while ( isNaN(primoNumero) || primoNumero == '' ) {
+//   primoNumero = parseInt(prompt('Il numero inserito non é valido. Inserisci un numero.'));
+// }
+//
+// // Utente inserisce secondo numero
+// var secondoNumero = parseInt(prompt('Inserisci un secondo numero.'));
+//
+// while ( isNaN(secondoNumero) || secondoNumero == '' ) {
+//   secondoNumero = parseInt(prompt('Il numero inserito non é valido. Inserisci un secondo numero.'));
+// }
+//
+// // Il software trova il maggiore
+// var messaggio = 'I numeri sono pari.';
+//
+// if ( primoNumero > secondoNumero ) {
+//   messaggio = 'Il numero maggiore è: ' + primoNumero;
+// } else if ( secondoNumero > primoNumero ) {
+//   messaggio = 'Il numero maggiore è: ' + secondoNumero;
+// }
+//
+// // Stampa il numero maggiore
+// document.getElementById('ciao').innerHTML = messaggio;
 
-// Utente inserisce primo numero
-var primoNumero = parseInt(prompt('Inserisci un numero.'));
 
-while ( isNaN(primoNumero) || primoNumero == '' ) {
-  primoNumero = parseInt(prompt('Il numero inserito non é valido. Inserisci un numero.'));
+// JSNACKS-2
+//// L’utente inserisce due parole in successione, con due prompt. Il software
+//// stampa prima la parola più corta, poi la parola più lunga.
+
+// Utente inserisce due parole
+// Prima parola
+var primaParola = prompt("Inserisci la prima parola.");
+
+while ( primaParola.length == 0 || !(isNaN(primaParola)) ) {
+  primaParola = prompt("La parola inserita non è valida. Inserisci la prima parola.");
 }
-// console.log(primoNumero);
 
-// Utente inserisce secondo numero
-var secondoNumero = parseInt(prompt('Inserisci un secondo numero.'));
+// Seconda Parola
+var secondaParola = prompt("Inserisci la seconda parola.");
 
-while ( isNaN(secondoNumero) || secondoNumero == '' ) {
-  secondoNumero = parseInt(prompt('Il numero inserito non é valido. Inserisci un secondo numero.'));
-}
-// console.log(secondoNumero);
-
-// Il software trova il maggiore
-var messaggio = 'I numeri sono pari.';
-
-if ( primoNumero > secondoNumero ) {
-  messaggio = 'Il numero maggiore è: ' + primoNumero;
-} else if ( secondoNumero > primoNumero ) {
-  messaggio = 'Il numero maggiore è: ' + secondoNumero;
+while ( secondaParola.length == 0 || !(isNaN(secondaParola)) ) {
+  secondaParola = prompt("La parola inserita non è valida. Inserisci la prima parola.");
 }
 
-// Stampa il numero maggiore
+
+//Variabili utili
+var messaggio = 'Le parole sono uguali';
+
+// Calcolo la lumghezza
+if ( primaParola.length > secondaParola.length ) {
+  // parolaCorta = secondaParola;
+  // parolaLunga = primaParola;
+  messaggio = secondaParola + '-' + primaParola;
+} else if ( secondaParola.length > primaParola.length ) {
+  // parolaCorta = primaParola;
+  // parolaLunga = secondaParola;
+  messaggio = primaParola  + '-' + secondaParola;;
+}
+
+// Stampo le parole in base alla lunghezza
 document.getElementById('ciao').innerHTML = messaggio;
 
 
-// // JSNACKS-2
-// //// L’utente inserisce due parole in successione, con due prompt. Il software
-// //// stampa prima la parola più corta, poi la parola più lunga.
-//
-// // Utente inserisce due parole
-// // Prima parola
-// var primaParola = prompt("Inserisci la prima parola.");
-// console.log(primaParola);
-//
-// // Seconda Parola
-// var secondaParola = prompt("Inserisci la seconda parola.");
-// console.log(secondaParola);
-//
-// //Variabili utili
-// // var parolaCorta;
-// // var parolaLunga;
-// var messaggio = 'Le parole sono uguali';
-//
-// // Stampo le parole in ordine di lunghezza
-// // Calcolo la lumghezza
-// if ( primaParola.length > secondaParola.length ) {
-//   // parolaCorta = secondaParola;
-//   // parolaLunga = primaParola;
-//   messaggio = 'La parola più corta è '+ secondaParola + ', la parola più lunga è ' + primaParola;
-// } else if ( secondaParola.length > primaParola.length ) {
-//   // parolaCorta = primaParola;
-//   // parolaLunga = secondaParola;
-//   messaggio = 'La parola più corta è '+ primaParola  + ', la parola più lunga è ' + secondaParola;;
-// }
-//
-// // Stampo le parole
-// document.getElementById('ciao').innerHTML = messaggio;
-//
 // // JSNACKS-3
 // //// Il software deve chiedere per 5 volte all’utente di inserire un numero.
 // //// Il programma stampa la somma di tutti i numeri inseriti. Esegui questo programma
