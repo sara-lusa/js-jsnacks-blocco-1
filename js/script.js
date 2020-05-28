@@ -40,7 +40,6 @@ var primaParola = prompt("Inserisci la prima parola.");
 while ( primaParola.length == 0 || !(isNaN(primaParola)) ) {
   primaParola = prompt("La parola inserita non è valida. Inserisci la prima parola.");
 }
-
 // Seconda Parola
 var secondaParola = prompt("Inserisci la seconda parola.");
 
@@ -48,18 +47,13 @@ while ( secondaParola.length == 0 || !(isNaN(secondaParola)) ) {
   secondaParola = prompt("La parola inserita non è valida. Inserisci la prima parola.");
 }
 
-
-//Variabili utili
+//Variabile del messaggio finale
 var messaggio = 'Le parole sono uguali';
 
-// Calcolo la lumghezza
+// Calcolo e paragono la lunghezza delle parole
 if ( primaParola.length > secondaParola.length ) {
-  // parolaCorta = secondaParola;
-  // parolaLunga = primaParola;
   messaggio = secondaParola + '-' + primaParola;
 } else if ( secondaParola.length > primaParola.length ) {
-  // parolaCorta = primaParola;
-  // parolaLunga = secondaParola;
   messaggio = primaParola  + '-' + secondaParola;;
 }
 
