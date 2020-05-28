@@ -61,70 +61,91 @@
 // document.getElementById('ciao').innerHTML = messaggio;
 
 
-// JSNACKS-3
-//// Il software deve chiedere per 5 volte all’utente di inserire un numero.
-//// Il programma stampa la somma di tutti i numeri inseriti. Esegui questo programma
-//// in due versioni, con il for e con il while.
-
-var numeri = [];
-// Chiedo un numero all'utente per 5 volte
-
-// // WHILE
-// while (numeri.length < 5) {
+// // JSNACKS-3
+// //// Il software deve chiedere per 5 volte all’utente di inserire un numero.
+// //// Il programma stampa la somma di tutti i numeri inseriti. Esegui questo programma
+// //// in due versioni, con il for e con il while.
+//
+// var numeri = [];
+// // Chiedo un numero all'utente per 5 volte
+//
+// // // WHILE
+// // while (numeri.length < 5) {
+// //   var numero = parseInt(prompt('Inserisci un numero.'));
+// //   if ( isNaN(numero) || numero == '' ) {
+// //     numero = parseInt(prompt('Il numero inserito non è valido. Inserisci un numero.'));
+// //   }
+// //   numeri.push(numero);
+// // };
+// // console.log(numeri);
+//
+// // FOR
+// for (var i = 0; i < 5; i++) {
 //   var numero = parseInt(prompt('Inserisci un numero.'));
-//   if ( isNaN(numero) || numero == '' ) {
+//   while ( isNaN(numero) || numero == '' ) {
 //     numero = parseInt(prompt('Il numero inserito non è valido. Inserisci un numero.'));
 //   }
 //   numeri.push(numero);
 // };
-// console.log(numeri);
+//
+// // Sommo i numeri e stampo il risultato
+// var somma = 0;
+// for (var i = 0; i < numeri.length; i++) {
+//   somma = somma + numeri[i];
+// };
+//
+// document.getElementById('ciao').innerHTML = 'La somma finale è: ' + somma;
 
-// FOR
-for (var i = 0; i < 5; i++) {
-  var numero = parseInt(prompt('Inserisci un numero.'));
-  while ( isNaN(numero) || numero == '' ) {
-    numero = parseInt(prompt('Il numero inserito non è valido. Inserisci un numero.'));
+
+// JSNACKS-4
+//// In un array sono contenuti i nomi degli invitati alla festa del grande Gatsby,
+//// chiedi all’utente il suo nome e comunicagli se può partecipare o no alla festa.
+
+// Lista invitati
+var lista = ['alberto', 'lara', 'camilla', 'maia', 'noa', 'alex', 'sara'];
+
+// Chiedo all'utente il nome
+// WHILE
+var nome = prompt('Come ti chiami?');
+while ( !(isNaN(nome)) || nome.length == 0 ) {
+  nome = prompt('Il nome inserito non è valido. Come ti chiami?');
+};
+
+// // DO-WHILE
+// do {
+//   var nome = prompt('Come ti chiami?');
+// } while ( !(isNaN(nome)) || nome.length == 0 )
+
+// Ipotesi invitato
+var invitato = false;
+
+// Standardizzazione grandezza nomi
+var nomeMinusciolo = nome.toLowerCase();
+
+// Ciclo di controllo nomi lista
+// WHILE
+var i = 0;
+while (i < lista.length) {
+  if ( nomeMinusciolo == lista[i] ) {
+    invitato = true;
   }
-  numeri.push(numero);
-};
+  i++;
+}
 
-// Sommo i numeri e stampo il risultato
-var somma = 0;
-for (var i = 0; i < numeri.length; i++) {
-  somma = somma + numeri[i];
-};
-
-document.getElementById('ciao').innerHTML = 'La somma finale è: ' + somma;
-
-
-// // JSNACKS-4
-// //// In un array sono contenuti i nomi degli invitati alla festa del grande Gatsby,
-// //// chiedi all’utente il suo nome e comunicagli se può partecipare o no alla festa.
-//
-// // Lista invitati
-// var lista = ['Alberto', 'Lara', 'Camilla', 'Maia', 'Noa', 'Alex', 'Sara'];
-//
-// // Chiedo all'utente il nome
-// var nome = prompt('Come ti chiami?');
-//
-// // Ipotesi invitato
-// var invitato = false;
-//
-// // Ciclo di controllo nomi lista
-// var i = 0;
-// while (i < lista.length) {
-//   if ( nome == lista[i] ) {
+// // FOR
+// for (var i = 0; i < lista.length; i++) {
+//   if ( nomeMinusciolo == lista[i] ) {
 //     invitato = true;
 //   }
-//   i++;
 // }
-//
-// // Stampo partecipazione o non
-// if (invitato) {
-//   alert('Puoi partecipare!');
-// } else {
-//   alert('Mi dispiace non puoi partecipare.')
-// }
+
+// Stampo partecipazione o non
+var partecipazione = document.getElementById('ciao');
+if (invitato) {
+  partecipazione.innerHTML = 'Puoi partecipare!';
+} else {
+  partecipazione.innerHTML = 'Mi dispiace, non puoi partecipare.';
+}
 
 
 // // JSNACKS-5
