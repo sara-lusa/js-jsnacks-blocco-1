@@ -243,65 +243,101 @@
 // }
 
 
-//// JSNACK 4
-// Crea due array che hanno un numero di elementi diversi.
-// Aggiungi elementi casuali all’array che ha meno elementi, fino a quando ne avrà
-// tanti quanti l’altro.
-
-// Creo due array con un numero di elementi differente
-var array1 = [1, 2, 3, 'ciao', 4, 5, 6];
-var array2 = [7, 7, 8, 'ok', 7, 7, 8, 'ok', 7, 7, 8, 'ok'];
-
-console.log(array1);
-console.log(array2);
-
-// VERSIONE SOLO CON WHILE
-// // Creo un ciclo che riempirà l'array più corto, in modo da averli lunghi uguali
-// while ( array1.length != array2.length ) {
+// //// JSNACK 4
+// // Crea due array che hanno un numero di elementi diversi.
+// // Aggiungi elementi casuali all’array che ha meno elementi, fino a quando ne avrà
+// // tanti quanti l’altro.
 //
-//   var elementiRandom = Math.floor(Math.random() * 10);
+// // Creo due array con un numero di elementi differente
+// var array1 = [1, 2, 3, 'ciao', 4, 5, 6];
+// var array2 = [7, 7, 8, 'ok', 7, 7, 8, 'ok', 7, 7, 8, 'ok'];
 //
-//   if ( array1.length > array2.length ) {
-//     array2.push(elementiRandom);
+// console.log(array1);
+// console.log(array2);
+//
+// // VERSIONE SOLO CON WHILE
+// // // Creo un ciclo che riempirà l'array più corto, in modo da averli lunghi uguali
+// // while ( array1.length != array2.length ) {
+// //
+// //   var elementiRandom = Math.floor(Math.random() * 10);
+// //
+// //   if ( array1.length > array2.length ) {
+// //     array2.push(elementiRandom);
+// //   }
+// //   else if ( array2.length > array1.length ) {
+// //     array1.push(elementiRandom);
+// //   }
+// //
+// //   console.log(array1);
+// //   console.log(array2);
+// // }
+//
+// // VERSIONE CON FUNZIONE
+// // Dichiaro una variabile per le lunghezze degli array
+// var lunghezzaArray1 = array1.length;
+// var lunghezzaArray2 = array2.length;
+//
+// if ( lunghezzaArray1 > lunghezzaArray2 ) {
+//   // riempio l'array2
+//   var array2Aumentato = riempioArray(array2, lunghezzaArray1)
+//   console.log('Questo array2 è stato aumentato', array2Aumentato);
+// }
+// else if ( lunghezzaArray2 > lunghezzaArray1 ) {
+//   // riempio l'array1
+//   var array1Aumentato = riempioArray(array1, lunghezzaArray2)
+//   console.log('Questo array1 è stato aumentato', array1Aumentato);
+// }
+// else {
+//   // Gli array sono lunghi uguale
+//   console.log('Gli array habbo lunghezza uguale');
+// }
+//
+// // FUNZIONI
+// // Questa funzione serve a riempire un array fino a farlo diventare di una certa lunghezza
+// // Argomento: l'array da allungare, la lunghezza che deve raggiungere
+// // Return: l'array aumentato
+// function riempioArray(array, lunghezzaMinimaArray) {
+//
+//   while (array.length != lunghezzaMinimaArray) {
+//     var numeroRandom = Math.floor(Math.random() * 10);
+//     array.push(numeroRandom)
 //   }
-//   else if ( array2.length > array1.length ) {
-//     array1.push(elementiRandom);
-//   }
 //
-//   console.log(array1);
-//   console.log(array2);
+//   return array;
 // }
 
-// VERSIONE CON FUNZIONE
-// Dichiaro una variabile per le lunghezze degli array
-var lunghezzaArray1 = array1.length;
-var lunghezzaArray2 = array2.length;
 
-if ( lunghezzaArray1 > lunghezzaArray2 ) {
-  // riempio l'array2
-  var array2Aumentato = riempioArray(array2, lunghezzaArray1)
-  console.log('Questo array2 è stato aumentato', array2Aumentato);
-}
-else if ( lunghezzaArray2 > lunghezzaArray1 ) {
-  // riempio l'array1
-  var array1Aumentato = riempioArray(array1, lunghezzaArray2)
-  console.log('Questo array1 è stato aumentato', array1Aumentato);
-}
-else {
-  // Gli array sono lunghi uguale
-  console.log('Gli array habbo lunghezza uguale');
-}
+//// JSNACKS BLOCCO 3
+// //// JSNACK 2
+// // Fai inserire un numero, che chiameremo N, all’utente. Genera N array, ognuno
+// // formato da 10 numeri casuali tra 1 e 100.
+// // Ogni volta che ne crei uno, stampalo a schermo.
+//
+// // Chiedo un numero all'utente
+// var numeroUtente = prompt('Inserisci un numero.');
 
-// FUNZIONI
-// Questa funzione serve a riempire un array fino a farlo diventare di una certa lunghezza
-// Argomento: l'array da allungare, la lunghezza che deve raggiungere
-// Return: l'array aumentato 
-function riempioArray(array, lunghezzaMinimaArray) {
 
-  while (array.length != lunghezzaMinimaArray) {
-    var numeroRandom = Math.floor(Math.random() * 10);
-    array.push(numeroRandom)
+//// JSNACK 3
+// Crea due tag div con due id diversi: un div avrà il testo colorato di rosso mentre l’altro di verde.
+// Partendo da un array di numeri, stampiamo nell’id rosso i numeri dispari e in verde i numeri pari.
+
+// Aggiungo una classe al div rosso, che colora il testo di rosso
+var divRosso = document.getElementById('rosso');
+divRosso.className = 'rosso';
+
+// Aggiungo una classe al div verde, che colora il testo di verde
+var divVerde = document.getElementById('verde');
+divVerde.className = 'verde';
+
+// Dichiaro un array di numeri
+var numeriArray = [31, 42, 53, 64, 75, 86, 97, 18, 29];
+
+for (var i = 0; i < numeriArray.length; i++) {
+
+  if (numeriArray[i] % 2 != 0) {
+    divRosso.innerHTML += ' ' + numeriArray[i];
+
+  } else if (numeriArray[i] % 2 == 0) {
+    divVerde.innerHTML += ' ' + numeriArray[i];
   }
-
-  return array;
 }
