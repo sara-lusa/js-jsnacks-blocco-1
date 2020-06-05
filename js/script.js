@@ -1,4 +1,6 @@
-// // JSNACKS-1
+// JSNACKS BLOCCO 1
+
+//// JSNACKS-1
 // //// L'utente inserisce due numeri in successione, con due prompt.
 // //// Il software stampa il maggiore.
 //
@@ -29,7 +31,7 @@
 // document.getElementById('ciao').innerHTML = messaggio;
 
 
-// // JSNACKS-2
+// //// JSNACKS-2
 // //// L’utente inserisce due parole in successione, con due prompt. Il software
 // //// stampa prima la parola più corta, poi la parola più lunga.
 //
@@ -61,7 +63,7 @@
 // document.getElementById('ciao').innerHTML = messaggio;
 
 
-// // JSNACKS-3
+// //// JSNACKS-3
 // //// Il software deve chiedere per 5 volte all’utente di inserire un numero.
 // //// Il programma stampa la somma di tutti i numeri inseriti. Esegui questo programma
 // //// in due versioni, con il for e con il while.
@@ -97,7 +99,7 @@
 // document.getElementById('ciao').innerHTML = 'La somma finale è: ' + somma;
 
 
-// // JSNACKS-4
+// //// JSNACKS-4
 // //// In un array sono contenuti i nomi degli invitati alla festa del grande Gatsby,
 // //// chiedi all’utente il suo nome e comunicagli se può partecipare o no alla festa.
 //
@@ -148,34 +150,94 @@
 // }
 
 
-// JSNACKS-5
-//// Chiedi un numero di 4 cifre all’utente e calcola la somma di tutte le cifre
-//// che compongono il numero.
-
-// Chiedo un numero all'utente
-var numero = parseInt(prompt('Scrivi un numero di 4 cifre.'));
-while ( !(numero >=  1000 && numero <= 9999) || isNaN(numero)  ) {
-  numero = parseInt(prompt('Non valido. Scrivi un numero di 4 cifre.'));
-}
-
-// Cambiamo tipo variabile per procedere al calcolo
-var stringa = numero.toString();
-var singoloNumero = stringa.split('');
-
-// Calcolo la somma
-var somma = 0;
-
-// FOR
-for (var i = 0; i < singoloNumero.length; i++) {
-  somma = somma + parseInt(singoloNumero[i]);
-}
-
-// // WHILE
-// var i = 0;
-// while ( i < singoloNumero.length ) {
-//   somma = somma + parseInt(singoloNumero[i]);
-//   i++;
+// //// JSNACKS-5
+// //// Chiedi un numero di 4 cifre all’utente e calcola la somma di tutte le cifre
+// //// che compongono il numero.
+//
+// // Chiedo un numero all'utente
+// var numero = parseInt(prompt('Scrivi un numero di 4 cifre.'));
+// while ( !(numero >=  1000 && numero <= 9999) || isNaN(numero)  ) {
+//   numero = parseInt(prompt('Non valido. Scrivi un numero di 4 cifre.'));
 // }
+//
+// // Cambiamo tipo variabile per procedere al calcolo
+// var stringa = numero.toString();
+// var singoloNumero = stringa.split('');
+//
+// // Calcolo la somma
+// var somma = 0;
+//
+// // FOR
+// for (var i = 0; i < singoloNumero.length; i++) {
+//   somma = somma + parseInt(singoloNumero[i]);
+// }
+//
+// // // WHILE
+// // var i = 0;
+// // while ( i < singoloNumero.length ) {
+// //   somma = somma + parseInt(singoloNumero[i]);
+// //   i++;
+// // }
+//
+// // Stampo il risulatato
+// document.getElementById('ciao').innerHTML = 'La somma è: ' + somma;
 
-// Stampo il risulatato
-document.getElementById('ciao').innerHTML = 'La somma è: ' + somma;
+
+//// JSNACKS BLOCCO 2
+//// JSNACK 2
+// Generatore di “nomi cognomi” casuali: prendendo una lista di nomi e una lista di
+// cognomi, Gatsby vuole generare una falsa lista di invitati.
+
+// dichiaro una lista di nomi
+var nomi = ['Anna', 'Angela', 'Francesca', 'Emma', 'Maya'];
+
+// dichiaro una lista di cognomi
+var cognomi = ['Rossi', 'Bianchi', 'Neri', 'Mazzini', 'Lusa'];
+
+// Dichiaro una lista vuota da riempire con le nuove identità
+var listaNuovaIdentita = [];
+
+// Genero numeri random, che poi collego agli index degli array
+while ( listaNuovaIdentita.length < 5 ) {
+  // Genero un indice random e seleziona il nome
+  var nomiIndex = generoNumeriRandom(0, 4);
+  var nomeCasuale = nomi[nomiIndex];
+
+  // Genero un indice random e seleziona il cognomw
+  var cognomiIndex = generoNumeriRandom(0, 4);
+  var cognomeCasuale = cognomi[cognomiIndex];
+
+  // Compongo l'identità falsa
+  var nomeNuovo = nomeCasuale + ' ' + cognomeCasuale;
+
+  // Se il nome non è ripetuto, lo pusho sull'array listaNuovaIdentita
+  if (verificoSeElementoInArray(nomeNuovo, listaNuovaIdentita) === false) {
+    listaNuovaIdentita.push(nomeNuovo);
+  }
+}
+
+// Stampo le identità create (in una lista)
+console.log(listaNuovaIdentita);
+
+// FUNZIONI
+// Questa funzione genera numeri casuali
+// Argomento: il valore massimo e minimo che delimitano i numeri generati
+// Return: numeri casuali nel range stabilito
+function generoNumeriRandom(min, max) {
+  return Math.floor(Math.random() * (max - min) ) + min;
+}
+
+// Questa funzione verifica se un elemento si trova all'interno di un verificoSeElementoInArray
+// Argomento: l'elemento che vuoi verificare, l'array in cui cercare
+// return: valore booleano (true, l'elemento si trova all'interno, false, non c'è)
+function verificoSeElementoInArray(elemento, array) {
+  var elementoPresente = false;
+
+  for (var i = 0; i < array.length; i++) {
+    if (elemento == array[i]) {
+      elementoPresente = true;
+    }
+  }
+
+  return elementoPresente;
+}
