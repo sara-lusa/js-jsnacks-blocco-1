@@ -308,36 +308,50 @@
 
 
 //// JSNACKS BLOCCO 3
-// //// JSNACK 2
-// // Fai inserire un numero, che chiameremo N, all’utente. Genera N array, ognuno
-// // formato da 10 numeri casuali tra 1 e 100.
-// // Ogni volta che ne crei uno, stampalo a schermo.
-//
-// // Chiedo un numero all'utente
-// var numeroUtente = prompt('Inserisci un numero.');
+//// JSNACK 2
+// Fai inserire un numero, che chiameremo N, all’utente. Genera N array, ognuno
+// formato da 10 numeri casuali tra 1 e 100.
+// Ogni volta che ne crei uno, stampalo a schermo.
 
+// Chiedo un numero all'utente
+var numeroUtente = parseInt(prompt('Inserisci un numero.'));
 
-//// JSNACK 3
-// Crea due tag div con due id diversi: un div avrà il testo colorato di rosso mentre l’altro di verde.
-// Partendo da un array di numeri, stampiamo nell’id rosso i numeri dispari e in verde i numeri pari.
+// VERSIONE CON DOPPIO FOR
+// Creo un ciclo for che generi n array
+for (var i = 0; i < numeroUtente; i++) {
+  var arrayGenerati = [];
 
-// Aggiungo una classe al div rosso, che colora il testo di rosso
-var divRosso = document.getElementById('rosso');
-divRosso.className = 'rosso';
-
-// Aggiungo una classe al div verde, che colora il testo di verde
-var divVerde = document.getElementById('verde');
-divVerde.className = 'verde';
-
-// Dichiaro un array di numeri
-var numeriArray = [31, 42, 53, 64, 75, 86, 97, 18, 29];
-
-for (var i = 0; i < numeriArray.length; i++) {
-
-  if (numeriArray[i] % 2 != 0) {
-    divRosso.innerHTML += ' ' + numeriArray[i];
-
-  } else if (numeriArray[i] % 2 == 0) {
-    divVerde.innerHTML += ' ' + numeriArray[i];
+  for (var j = 0; j < 10; j++) {
+    var numeriRandom = Math.floor(Math.random() * 100) + 1;
+    arrayGenerati.push(numeriRandom);
   }
+  console.log(arrayGenerati);
 }
+
+// VERSIONE CON FUNZIONE
+
+
+// //// JSNACK 3
+// // Crea due tag div con due id diversi: un div avrà il testo colorato di rosso mentre l’altro di verde.
+// // Partendo da un array di numeri, stampiamo nell’id rosso i numeri dispari e in verde i numeri pari.
+//
+// // Aggiungo una classe al div rosso, che colora il testo di rosso
+// var divRosso = document.getElementById('rosso');
+// divRosso.className = 'rosso';
+//
+// // Aggiungo una classe al div verde, che colora il testo di verde
+// var divVerde = document.getElementById('verde');
+// divVerde.className = 'verde';
+//
+// // Dichiaro un array di numeri
+// var numeriArray = [31, 42, 53, 64, 75, 86, 97, 18, 29];
+//
+// for (var i = 0; i < numeriArray.length; i++) {
+//
+//   if (numeriArray[i] % 2 != 0) {
+//     divRosso.innerHTML += ' ' + numeriArray[i];
+//
+//   } else if (numeriArray[i] % 2 == 0) {
+//     divVerde.innerHTML += ' ' + numeriArray[i];
+//   }
+// }
