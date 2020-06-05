@@ -318,17 +318,37 @@ var numeroUtente = parseInt(prompt('Inserisci un numero.'));
 
 // VERSIONE CON DOPPIO FOR
 // Creo un ciclo for che generi n array
+// for (var i = 0; i < numeroUtente; i++) {
+//   var arrayGenerati = [];
+//
+//   for (var j = 0; j < 10; j++) {
+//     var numeriRandom = Math.floor(Math.random() * 100) + 1;
+//     arrayGenerati.push(numeriRandom);
+//   }
+//   console.log(arrayGenerati);
+// }
+
+// VERSIONE CON FUNZIONE
 for (var i = 0; i < numeroUtente; i++) {
+  var arrayGenerati = generaArray()
+
+  console.log(arrayGenerati);
+}
+// FUNZIONE
+// Genera un array, al cui interno ci saranno 10 numeri casuali
+// Nessun ARGOMENTO richiesto
+// Return: arrayGenerati, ovvero un array contenente 10 numeri
+
+function generaArray() {
   var arrayGenerati = [];
 
   for (var j = 0; j < 10; j++) {
     var numeriRandom = Math.floor(Math.random() * 100) + 1;
     arrayGenerati.push(numeriRandom);
   }
-  console.log(arrayGenerati);
-}
 
-// VERSIONE CON FUNZIONE
+  return arrayGenerati;
+}
 
 
 // //// JSNACK 3
