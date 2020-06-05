@@ -183,61 +183,125 @@
 // document.getElementById('ciao').innerHTML = 'La somma è: ' + somma;
 
 
-//// JSNACKS BLOCCO 2
-//// JSNACK 2
-// Generatore di “nomi cognomi” casuali: prendendo una lista di nomi e una lista di
-// cognomi, Gatsby vuole generare una falsa lista di invitati.
+// //// JSNACKS BLOCCO 2
+// //// JSNACK 2
+// // Generatore di “nomi cognomi” casuali: prendendo una lista di nomi e una lista di
+// // cognomi, Gatsby vuole generare una falsa lista di invitati.
+//
+// // dichiaro una lista di nomi
+// var nomi = ['Anna', 'Angela', 'Francesca', 'Emma', 'Maya'];
+//
+// // dichiaro una lista di cognomi
+// var cognomi = ['Rossi', 'Bianchi', 'Neri', 'Mazzini', 'Lusa'];
+//
+// // Dichiaro una lista vuota da riempire con le nuove identità
+// var listaNuovaIdentita = [];
+//
+// // Genero numeri random, che poi collego agli index degli array
+// while ( listaNuovaIdentita.length < 5 ) {
+//   // Genero un indice random e seleziona il nome
+//   var nomiIndex = generoNumeriRandom(0, 4);
+//   var nomeCasuale = nomi[nomiIndex];
+//
+//   // Genero un indice random e seleziona il cognomw
+//   var cognomiIndex = generoNumeriRandom(0, 4);
+//   var cognomeCasuale = cognomi[cognomiIndex];
+//
+//   // Compongo l'identità falsa
+//   var nomeNuovo = nomeCasuale + ' ' + cognomeCasuale;
+//
+//   // Se il nome non è ripetuto, lo pusho sull'array listaNuovaIdentita
+//   if (verificoSeElementoInArray(nomeNuovo, listaNuovaIdentita) === false) {
+//     listaNuovaIdentita.push(nomeNuovo);
+//   }
+// }
+//
+// // Stampo le identità create (in una lista)
+// console.log(listaNuovaIdentita);
+//
+// // FUNZIONI
+// // Questa funzione genera numeri casuali
+// // Argomento: il valore massimo e minimo che delimitano i numeri generati
+// // Return: numeri casuali nel range stabilito
+// function generoNumeriRandom(min, max) {
+//   return Math.floor(Math.random() * (max - min) ) + min;
+// }
+//
+// // Questa funzione verifica se un elemento si trova all'interno di un verificoSeElementoInArray
+// // Argomento: l'elemento che vuoi verificare, l'array in cui cercare
+// // return: valore booleano (true, l'elemento si trova all'interno, false, non c'è)
+// function verificoSeElementoInArray(elemento, array) {
+//   var elementoPresente = false;
+//
+//   for (var i = 0; i < array.length; i++) {
+//     if (elemento == array[i]) {
+//       elementoPresente = true;
+//     }
+//   }
+//
+//   return elementoPresente;
+// }
 
-// dichiaro una lista di nomi
-var nomi = ['Anna', 'Angela', 'Francesca', 'Emma', 'Maya'];
 
-// dichiaro una lista di cognomi
-var cognomi = ['Rossi', 'Bianchi', 'Neri', 'Mazzini', 'Lusa'];
+//// JSNACK 4
+// Crea due array che hanno un numero di elementi diversi.
+// Aggiungi elementi casuali all’array che ha meno elementi, fino a quando ne avrà
+// tanti quanti l’altro.
 
-// Dichiaro una lista vuota da riempire con le nuove identità
-var listaNuovaIdentita = [];
+// Creo due array con un numero di elementi differente
+var array1 = [1, 2, 3, 'ciao', 4, 5, 6];
+var array2 = [7, 7, 8, 'ok', 7, 7, 8, 'ok', 7, 7, 8, 'ok'];
 
-// Genero numeri random, che poi collego agli index degli array
-while ( listaNuovaIdentita.length < 5 ) {
-  // Genero un indice random e seleziona il nome
-  var nomiIndex = generoNumeriRandom(0, 4);
-  var nomeCasuale = nomi[nomiIndex];
+console.log(array1);
+console.log(array2);
 
-  // Genero un indice random e seleziona il cognomw
-  var cognomiIndex = generoNumeriRandom(0, 4);
-  var cognomeCasuale = cognomi[cognomiIndex];
+// VERSIONE SOLO CON WHILE
+// // Creo un ciclo che riempirà l'array più corto, in modo da averli lunghi uguali
+// while ( array1.length != array2.length ) {
+//
+//   var elementiRandom = Math.floor(Math.random() * 10);
+//
+//   if ( array1.length > array2.length ) {
+//     array2.push(elementiRandom);
+//   }
+//   else if ( array2.length > array1.length ) {
+//     array1.push(elementiRandom);
+//   }
+//
+//   console.log(array1);
+//   console.log(array2);
+// }
 
-  // Compongo l'identità falsa
-  var nomeNuovo = nomeCasuale + ' ' + cognomeCasuale;
+// VERSIONE CON FUNZIONE
+// Dichiaro una variabile per le lunghezze degli array
+var lunghezzaArray1 = array1.length;
+var lunghezzaArray2 = array2.length;
 
-  // Se il nome non è ripetuto, lo pusho sull'array listaNuovaIdentita
-  if (verificoSeElementoInArray(nomeNuovo, listaNuovaIdentita) === false) {
-    listaNuovaIdentita.push(nomeNuovo);
-  }
+if ( lunghezzaArray1 > lunghezzaArray2 ) {
+  // riempio l'array2
+  var array2Aumentato = riempioArray(array2, lunghezzaArray1)
+  console.log('Questo array2 è stato aumentato', array2Aumentato);
 }
-
-// Stampo le identità create (in una lista)
-console.log(listaNuovaIdentita);
+else if ( lunghezzaArray2 > lunghezzaArray1 ) {
+  // riempio l'array1
+  var array1Aumentato = riempioArray(array1, lunghezzaArray2)
+  console.log('Questo array1 è stato aumentato', array1Aumentato);
+}
+else {
+  // Gli array sono lunghi uguale
+  console.log('Gli array habbo lunghezza uguale');
+}
 
 // FUNZIONI
-// Questa funzione genera numeri casuali
-// Argomento: il valore massimo e minimo che delimitano i numeri generati
-// Return: numeri casuali nel range stabilito
-function generoNumeriRandom(min, max) {
-  return Math.floor(Math.random() * (max - min) ) + min;
-}
+// Questa funzione serve a riempire un array fino a farlo diventare di una certa lunghezza
+// Argomento: l'array da allungare, la lunghezza che deve raggiungere
+// Return: l'array aumentato 
+function riempioArray(array, lunghezzaMinimaArray) {
 
-// Questa funzione verifica se un elemento si trova all'interno di un verificoSeElementoInArray
-// Argomento: l'elemento che vuoi verificare, l'array in cui cercare
-// return: valore booleano (true, l'elemento si trova all'interno, false, non c'è)
-function verificoSeElementoInArray(elemento, array) {
-  var elementoPresente = false;
-
-  for (var i = 0; i < array.length; i++) {
-    if (elemento == array[i]) {
-      elementoPresente = true;
-    }
+  while (array.length != lunghezzaMinimaArray) {
+    var numeroRandom = Math.floor(Math.random() * 10);
+    array.push(numeroRandom)
   }
 
-  return elementoPresente;
+  return array;
 }
